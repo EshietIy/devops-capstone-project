@@ -38,6 +38,8 @@ jobs:
         run: nosetests
         env:
           DATABASE_URI: "postgresql://postgres:pgs3cr3t@postgres:5432/testdb"
+      - name: checkout
+        uses: actions/checkout@v4
       - name: build image
         run: docker build ./ -t  ${{ secrets.DOCKERHUB_USERNAME }}/accounts:0.1
       - name: push Docker image
